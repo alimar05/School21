@@ -1,0 +1,5 @@
+Credentials cache: API:EA84D529-6AF5-4830-8F16-5E3CA3E4F36F
+        Principal: rymuller@21-SCHOOL.RU
+
+  Issued                Expires               Principal
+Sep 18 08:20:48 2018  Sep 19 08:20:48 2018  krbtgt/21-SCHOOL.RU@21-SCHOOL.RU
