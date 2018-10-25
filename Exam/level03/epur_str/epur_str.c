@@ -11,16 +11,6 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdio.h>
-
-void	ft_putstr(char *str)
-{
-	int i;
-
-	i = -1;
-	while (str[++i])
-		write(1, &str[i], 1);
-}
 
 int		ft_is_space(char c)
 {
@@ -29,31 +19,33 @@ int		ft_is_space(char c)
 	else
 		return (0);
 }
-/*
-int		words_num(char *str)
-{
-	int i;
-	int num;
 
-	i = -1;
-	num = 0;
-	while (str[++i])
-		if (!ft_is_space(str[i]) && (ft_is_space(str[i + 1]) || !str[i + 1]))
-			num++;
-	return (num);
-}
-*/
 int		main(int argc, char **argv)
 {
 	int i;
-	int count;
+    int count;
 
 	if (argc == 2)
 	{
 		i = 0;
-		while (argv[1][i])
+		while (ft_is_space(argv[1][i]))
 			i++;
 		while (argv[1][i])
+        {
+        	count = 0;
+            while (!ft_is_space(argv[1][i]) && argv[1][i])
+			{
+				write(1, &argv[1][i], 1);
+				i++;
+			}
+            while (ft_is_space(argv[1][i]))
+			{
+				i++;
+				count++;
+			}
+			if (count >= 1 && argv[1][i])
+				write(1, " ", 1);
+        }
 	}
 	write(1, "\n", 1);
 	return (0);
